@@ -17,3 +17,7 @@ cd docker-compose
 ```
 ./start.sh
 ```
+3. Verify GraphQL API is accessible:
+```bash
+open http://localhost:8000/graphiql/
+```
