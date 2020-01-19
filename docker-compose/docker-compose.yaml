@@ -1,7 +1,7 @@
 version: "3"
 services:
   graphqlapi:
-    image: pjeziorowski/graphqlapi
+    image: appwish/graphqlapi
     ports:
       - 8000:8000
     depends_on:
@@ -10,15 +10,15 @@ services:
       - VERTX_CONFIG_PATH=conf/docker-compose.json
 
   wishservice:
-    image: pjeziorowski/wishservice
+    image: appwish/wishservice
     depends_on:
-      - mongo
+      - postgres
     ports:
       - 8080:8080
     environment:
       - VERTX_CONFIG_PATH=conf/docker-compose.json
 
-  mongo:
-    image: mongo
+  postgres:
+    image: postgres
     ports:
-      - 27017:27017
+      - 5432:5432
