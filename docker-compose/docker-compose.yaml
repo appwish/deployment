@@ -18,6 +18,13 @@ services:
     environment:
       - VERTX_CONFIG_PATH=conf/docker-compose.json
 
+  web-ui:
+    image: appwish/web-ui
+    depends_on:
+      - graphqlapi
+    ports:
+      - 3000:3000
+
   postgres:
     image: postgres
     ports:
