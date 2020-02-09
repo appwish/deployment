@@ -18,6 +18,15 @@ services:
     environment:
       - VERTX_CONFIG_PATH=conf/docker-compose.json
 
+  commentservice:
+    image: appwish/commentservice
+    depends_on:
+      - postgres
+    ports:
+      - 8081:8081
+    environment:
+      - VERTX_CONFIG_PATH=conf/docker-compose.json
+
   web-ui:
     image: appwish/web-ui
     depends_on:
