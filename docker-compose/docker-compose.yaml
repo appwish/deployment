@@ -13,8 +13,6 @@ services:
     image: appwish/wishservice
     depends_on:
       - postgres
-    ports:
-      - 8080:8080
     environment:
       - VERTX_CONFIG_PATH=conf/docker-compose.json
 
@@ -22,8 +20,6 @@ services:
     image: appwish/commentservice
     depends_on:
       - postgres
-    ports:
-      - 8081:8081
     environment:
       - VERTX_CONFIG_PATH=conf/docker-compose.json
 
