@@ -6,23 +6,39 @@ services:
       - 8000:8000
     depends_on:
       - wishservice
+      - voteservice
+      - commentservice
     environment:
       - wishServiceHost=wishservice
+      - voteServiceHost=voteservice
+      - commentServiceHost=commentservice
 
   wishservice:
     image: appwish/wishservice
     depends_on:
       - postgres
     ports:
-      - 8080:8080
+      - 8081:8080
     environment:
       - appHost=wishservice
+      - dbHost=postgres
+
+  voteservice:
+    image: appwish/voteservice
+    depends_on:
+      - postgres
+    ports:
+      - 8082:8080      
+    environment:
+      - appHost=voteservice
       - dbHost=postgres
 
   commentservice:
     image: appwish/commentservice
     depends_on:
       - postgres
+    ports:
+      - 8083:8080      
     environment:
       - appHost=commentservice
 
